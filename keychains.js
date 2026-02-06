@@ -1,0 +1,86 @@
+window.KEYCHAINS = [
+  {
+    id: 1,
+    name: "Chonky the Octopus",
+    tagline: "The unfazable pronoic",
+    image: "./OPS.jpg",
+    shopUrl: "https://www.etsy.com/listing/4440685288/mini-octopus-candle-holder-cute-tea?ref=shop_home_active_6&pro=1&logging_key=09f445d67266244d1d7e8611e2e454ab837e6f55%3A4440685288",
+    color: "rgb(76, 170, 140)",
+    personality:
+      "Chonky spends his days playing with his fish friends and fucking dudes",
+    favFood: "Pringles",
+    hobby: "Cloud Watching",
+  },
+  {
+    id: 2,
+    name: "Sunny",
+    tagline: "The Eternal Optimist",
+    image: "SUN",
+    shopUrl: "https://yourshop.com/products/sunny",
+    color: "#FFDAC1",
+    personality:
+      "Sunny wakes up at 5 AM just to say hello to the sun. They believe every rainy day is just an excuse to wear a cute raincoat.",
+    favFood: "Lemon Slices",
+    hobby: "Telling Jokes",
+  },
+  {
+    id: 3,
+    name: "Boba",
+    tagline: "The Late Night Gamer",
+    image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&q=80&w=300",
+    shopUrl: "https://yourshop.com/products/boba",
+    color: "#E2F0CB",
+    personality:
+      "Boba is a night owl who loves high-scores and low-fi beats. They might look sleepy, but they have the fastest thumbs in the West.",
+    favFood: "Tapioca Pearls",
+    hobby: "Retro Gaming",
+  },
+  {
+    id: 4,
+    name: "Berry",
+    tagline: "The Tiny Adventurer",
+    image: "BRY",
+    shopUrl: "https://yourshop.com/products/berry",
+    color: "#FFB7B2",
+    personality:
+      "Berry may be small, but they once climbed a whole staircase by themselves! They carry a lot of courage in their tiny plush heart.",
+    favFood: "Wild Berries",
+    hobby: "Hiking",
+  },
+  {
+    id: 5,
+    name: "Berry",
+    tagline: "The Tiny Adventurer",
+    image: "BRY",
+    shopUrl: "https://yourshop.com/products/berry",
+    color: "#FFB7B2",
+    personality:
+      "Berry may be small, but they once climbed a whole staircase by themselves! They carry a lot of courage in their tiny plush heart.",
+    favFood: "Wild Berries",
+    hobby: "Hiking",
+  },
+  {
+    id: 6,
+    name: "Berry",
+    tagline: "The Tiny Adventurer",
+    image: "BRY",
+    shopUrl: "https://yourshop.com/products/berry",
+    color: "#000000",
+    personality:
+      "Berry may be small, but they once climbed a whole staircase by themselves! They carry a lot of courage in their tiny plush heart.",
+    favFood: "Wild Berries",
+    hobby: "Hiking",
+  },
+  {
+    id: 7,
+    name: "Berry",
+    tagline: "The Tiny Adventurer",
+    image: "BRY",
+    shopUrl: "https://yourshop.com/products/berry",
+    color: "#FFB7B2",
+    personality:
+      "Berry may be small, but they once climbed a whole staircase by themselves! They carry a lot of courage in their tiny plush heart.",
+    favFood: "Wild Berries",
+    hobby: "Hiking",
+  },
+];
