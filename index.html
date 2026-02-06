@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keychain Companions | Meet the Crew</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+  <!-- Navigation -->
+  <nav class="glass-nav sticky top-0 z-[60] px-4 md:px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center space-x-2">
+      <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-xl shadow-inner">✨</div>
+      <h1 class="text-xl md:text-2xl font-bold tracking-tight text-pink-500">KeyPal Shop</h1>
+    </div>
+
+    <!-- Desktop Links -->
+    <div class="hidden md:flex items-center space-x-4 font-semibold text-gray-600">
+      <a href="index.html" class="nav-pill">Home</a>
+      <a href="contact.html" class="nav-pill">Contact</a>
+      <a href="https://www.kiv3d.com" class="nav-pill">Shop All</a>
+      <a href="#social" class="nav-pill">Our Social Media</a>
+    </div>
+
+    <div class="flex items-center space-x-4">
+      <!-- Mobile Toggle -->
+      <button id="mobile-toggle" class="md:hidden p-2 text-pink-500 focus:outline-none" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 6h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Side Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-white z-[70] flex flex-col p-8 md:hidden shadow-2xl" aria-hidden="true">
+    <div class="flex justify-end">
+      <button id="mobile-close" class="text-gray-400 p-2 text-4xl" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="flex flex-col space-y-8 mt-12 text-2xl font-bold text-gray-800">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+      <a href="https://www.kiv3d.com" class="mobile-link">Shop All</a>
+      <a href="#social" class="mobile-link">Our Social Media</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <header id="home" class="max-w-6xl mx-auto px-6 py-12 md:py-20 text-center">
+    <h2 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Small Friends, <br class="sm:hidden"><span class="text-pink-400">Big Personalities</span></h2>
+    <p class="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
+      Every keychain we handcraft has a unique story, an adorable personality, and a face that's always happy to see you.
+    </p>
+  </header>
+
+  <!-- Character Grid -->
+  <main id="shop" class="max-w-7xl mx-auto px-4 md:px-8 pb-24">
+    <div id="character-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+      <!-- Dynamic Content -->
+    </div>
+  </main>
+
+
+
+  <!-- Character Modal -->
+  <div id="modal" class="fixed inset-0 z-[100] hidden flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/50 backdrop-blur-sm" aria-hidden="true">
+    <div class="bg-white rounded-t-[2.5rem] sm:rounded-[2.5rem] max-w-lg w-full overflow-hidden shadow-2xl modal-enter relative">
+      <div id="modal-color-bar" class="h-3 w-full"></div>
+      <div class="p-6 sm:p-10">
+        <div class="flex justify-between items-start mb-6">
+          <div id="modal-image-container" class="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl flex items-center justify-center text-5xl sm:text-6xl shadow-inner border-4 border-white overflow-hidden">
+            <!-- Image/Emoji -->
+          </div>
+          <button id="modal-close" class="text-gray-300 hover:text-gray-500 text-4xl p-2" aria-label="Close details">&times;</button>
+        </div>
+        <h3 id="modal-name" class="text-3xl sm:text-4xl font-bold mb-1">Character Name</h3>
+        <p id="modal-tagline" class="text-pink-500 font-semibold mb-6 italic">Character Tagline</p>
+
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-bold text-xs uppercase tracking-widest text-gray-400 mb-2">The Personality</h4>
+            <p id="modal-personality" class="text-gray-600 leading-relaxed text-base"></p>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+              <h4 class="font-bold text-[10px] uppercase text-gray-400 mb-1">Favorite Food</h4>
+              <p id="modal-food" class="text-gray-700 font-semibold text-sm"></p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+              <h4 class="font-bold text-[10px] uppercase text-gray-400 mb-1">Main Hobby</h4>
+              <p id="modal-hobby" class="text-gray-700 font-semibold text-sm"></p>
+            </div>
+          </div>
+        </div>
+
+        <a id="modal-adopt-btn" href="#" target="_blank" class="adopt-btn block text-center w-full mt-8 py-5 text-white font-bold rounded-2xl transition-all shadow-xl active:scale-[0.98]">
+          Adopt this KeyPal
+        </a>
+        <div class="h-6 sm:hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t py-12 px-6 text-center">
+    <p class="text-gray-400 text-sm italic font-medium">© 2026 KIV3D LLC • Tiny treasures for big hearts</p>
+  </footer>
+</body>
+</html>

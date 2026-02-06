@@ -1,0 +1,329 @@
+const KEYCHAINS = [
+  {
+    id: 1,
+    name: "Chonky the Octopus",
+    tagline: "The unfazable pronoic",
+    image: "./OPS.jpg",
+    adoptUrl: "https://www.etsy.com/listing/4440685288/mini-octopus-candle-holder-cute-tea?ref=shop_home_active_6&pro=1&logging_key=09f445d67266244d1d7e8611e2e454ab837e6f55%3A4440685288",
+    color: "rgb(76, 170, 140)",
+    personality:
+      "Chonky spends his days playing with his fish friends and fucking dudes",
+    favFood: "Pringles",
+    hobby: "Cloud Watching",
+  },
+  {
+    id: 2,
+    name: "Sunny",
+    tagline: "The Eternal Optimist",
+    image: "☀️",
+    adoptUrl: "https://yourshop.com/products/sunny",
+    color: "#FFDAC1",
+    personality:
+      "Sunny wakes up at 5 AM just to say hello to the sun. They believe every rainy day is just an excuse to wear a cute raincoat.",
+    favFood: "Lemon Slices",
+    hobby: "Telling Jokes",
+  },
+  {
+    id: 3,
+    name: "Boba",
+    tagline: "The Late Night Gamer",
+    image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&q=80&w=300",
+    adoptUrl: "https://yourshop.com/products/boba",
+    color: "#E2F0CB",
+    personality:
+      "Boba is a night owl who loves high-scores and low-fi beats. They might look sleepy, but they have the fastest thumbs in the West.",
+    favFood: "Tapioca Pearls",
+    hobby: "Retro Gaming",
+  },
+  {
+    id: 4,
+    name: "Berry",
+    tagline: "The Tiny Adventurer",
+    image: "🍓",
+    adoptUrl: "https://yourshop.com/products/berry",
+    color: "#FFB7B2",
+    personality:
+      "Berry may be small, but they once climbed a whole staircase by themselves! They carry a lot of courage in their tiny plush heart.",
+    favFood: "Wild Berries",
+    hobby: "Hiking",
+  },
+    {
+    id: 5,
+    name: "Berry",
+    tagline: "The Tiny Adventurer",
+    image: "🍓",
+    adoptUrl: "https://yourshop.com/products/berry",
+    color: "#FFB7B2",
+    personality:
+      "Berry may be small, but they once climbed a whole staircase by themselves! They carry a lot of courage in their tiny plush heart.",
+    favFood: "Wild Berries",
+    hobby: "Hiking",
+  },
+    {
+    id: 6,
+    name: "Berry",
+    tagline: "The Tiny Adventurer",
+    image: "🍓",
+    adoptUrl: "https://yourshop.com/products/berry",
+    color: "#000000",
+    personality:
+      "Berry may be small, but they once climbed a whole staircase by themselves! They carry a lot of courage in their tiny plush heart.",
+    favFood: "Wild Berries",
+    hobby: "Hiking",
+  },
+    {
+    id: 7,
+    name: "Berry",
+    tagline: "The Tiny Adventurer",
+    image: "🍓",
+    adoptUrl: "https://yourshop.com/products/berry",
+    color: "#FFB7B2",
+    personality:
+      "Berry may be small, but they once climbed a whole staircase by themselves! They carry a lot of courage in their tiny plush heart.",
+    favFood: "Wild Berries",
+    hobby: "Hiking",
+  },
+];
+
+const grid = document.getElementById("character-grid");
+const modal = document.getElementById("modal");
+const modalClose = document.getElementById("modal-close");
+const mobileMenu = document.getElementById("mobile-menu");
+const mobileToggle = document.getElementById("mobile-toggle");
+const mobileClose = document.getElementById("mobile-close");
+
+const modalColorBar = document.getElementById("modal-color-bar");
+const modalImageContainer = document.getElementById("modal-image-container");
+const modalName = document.getElementById("modal-name");
+const modalTagline = document.getElementById("modal-tagline");
+const modalPersonality = document.getElementById("modal-personality");
+const modalFood = document.getElementById("modal-food");
+const modalHobby = document.getElementById("modal-hobby");
+const modalAdoptBtn = document.getElementById("modal-adopt-btn");
+
+const isImageSource = (source) =>
+  source.startsWith("http") || source.startsWith("./");
+
+const buildMediaNode = (source) => {
+  if (isImageSource(source)) {
+    const img = document.createElement("img");
+    img.src = source;
+    img.alt = "Keychain";
+    img.className = "keychain-img";
+    img.addEventListener("error", () => {
+      img.replaceWith(document.createTextNode("✨"));
+    });
+    return img;
+  }
+  return document.createTextNode(source);
+};
+
+const setBodyLock = (locked, className) => {
+  document.body.classList.toggle(className, locked);
+};
+
+const openMobileMenu = () => {
+  if (!mobileMenu || !mobileToggle) return;
+  mobileMenu.classList.add("is-open");
+  mobileMenu.setAttribute("aria-hidden", "false");
+  mobileToggle.setAttribute("aria-expanded", "true");
+  setBodyLock(true, "menu-open");
+};
+
+const closeMobileMenu = () => {
+  if (!mobileMenu || !mobileToggle) return;
+  mobileMenu.classList.remove("is-open");
+  mobileMenu.setAttribute("aria-hidden", "true");
+  mobileToggle.setAttribute("aria-expanded", "false");
+  setBodyLock(false, "menu-open");
+};
+
+const toggleMobileMenu = () => {
+  if (mobileMenu.classList.contains("is-open")) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+};
+
+const renderCards = () => {
+  if (!grid) return;
+  grid.textContent = "";
+  const fragment = document.createDocumentFragment();
+
+  KEYCHAINS.forEach((item) => {
+    const card = document.createElement("div");
+    card.className =
+      "character-card bg-white rounded-[2.5rem] p-6 shadow-sm border border-gray-100 flex flex-col items-center text-center";
+    card.dataset.id = String(item.id);
+    card.style.background = `linear-gradient(180deg, white 0%, ${item.color}15 100%)`;
+
+    const mediaWrap = document.createElement("div");
+    mediaWrap.className =
+      "w-28 h-28 md:w-32 md:h-32 rounded-3xl flex items-center justify-center text-5xl md:text-6xl mb-6 shadow-inner border-4 border-white overflow-hidden floating";
+    mediaWrap.style.backgroundColor = `${item.color}44`;
+    mediaWrap.appendChild(buildMediaNode(item.image));
+
+    const name = document.createElement("h3");
+    name.className = "text-2xl font-bold mb-1";
+    name.textContent = item.name;
+
+    const tagline = document.createElement("p");
+    tagline.className =
+      "text-xs text-gray-400 font-bold mb-4 uppercase tracking-widest";
+    tagline.textContent = item.tagline;
+
+    card.appendChild(mediaWrap);
+    card.appendChild(name);
+    card.appendChild(tagline);
+
+    fragment.appendChild(card);
+  });
+
+  grid.appendChild(fragment);
+};
+
+const openModal = (id) => {
+  if (!modal) return;
+  const char = KEYCHAINS.find((c) => c.id === id);
+  if (!char) return;
+
+  modalColorBar.style.backgroundColor = char.color;
+  modalImageContainer.style.backgroundColor = `${char.color}44`;
+  modalImageContainer.textContent = "";
+  modalImageContainer.appendChild(buildMediaNode(char.image));
+
+  modalName.textContent = char.name;
+  modalTagline.textContent = char.tagline;
+  modalPersonality.textContent = char.personality;
+  modalFood.textContent = char.favFood;
+  modalHobby.textContent = char.hobby;
+  modalAdoptBtn.href = char.adoptUrl || "#";
+  modalAdoptBtn.target = "_blank";
+  modalAdoptBtn.rel = "noopener";
+  modalAdoptBtn.style.backgroundColor = char.color;
+  modalAdoptBtn.style.borderColor = char.color;
+  modalAdoptBtn.style.color = "#ffffff";
+  modalAdoptBtn.style.textShadow =
+    "0 1px 2px rgba(0,0,0,0.45), 0 2px 6px rgba(0,0,0,0.55), 0 0 2px rgba(0,0,0,0.75)";
+
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  setBodyLock(true, "modal-open");
+};
+
+const closeModal = () => {
+  if (!modal) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+  setBodyLock(false, "modal-open");
+};
+
+if (mobileToggle && mobileClose && mobileMenu) {
+  mobileToggle.addEventListener("click", toggleMobileMenu);
+  mobileClose.addEventListener("click", closeMobileMenu);
+  mobileMenu.addEventListener("click", (event) => {
+    if (event.target.classList.contains("mobile-link")) {
+      closeMobileMenu();
+    }
+  });
+}
+
+if (modal && modalClose) {
+  modalClose.addEventListener("click", closeModal);
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) closeModal();
+  });
+}
+
+if (grid) {
+  grid.addEventListener("click", (event) => {
+    const card = event.target.closest(".character-card");
+    if (!card) return;
+    const id = Number(card.dataset.id);
+    if (!Number.isNaN(id)) openModal(id);
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    if (modal && !modal.classList.contains("hidden")) closeModal();
+    if (mobileMenu && mobileMenu.classList.contains("is-open")) closeMobileMenu();
+  }
+});
+
+document.querySelectorAll(".nav-pill").forEach((pill) => {
+  pill.addEventListener("pointerdown", (event) => {
+    pill.classList.add("is-pressed");
+
+    const ripple = document.createElement("span");
+    ripple.className = "ripple";
+    const rect = pill.getBoundingClientRect();
+    ripple.style.left = `${event.clientX - rect.left}px`;
+    ripple.style.top = `${event.clientY - rect.top}px`;
+    pill.appendChild(ripple);
+
+    ripple.addEventListener("animationend", () => ripple.remove(), {
+      once: true,
+    });
+  });
+
+  pill.addEventListener("pointerup", () => {
+    pill.classList.remove("is-pressed");
+  });
+
+  pill.addEventListener("pointerleave", () => {
+    pill.classList.remove("is-pressed");
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderCards();
+  const statusEl = document.getElementById("contact-status");
+  const errorEl = document.getElementById("contact-error");
+  if (statusEl) {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("sent") === "1") {
+      statusEl.classList.remove("hidden");
+    }
+  }
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm && statusEl) {
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      statusEl.classList.add("hidden");
+      if (errorEl) errorEl.classList.add("hidden");
+
+      const submitBtn = contactForm.querySelector("button[type='submit']");
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+      }
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: new FormData(contactForm),
+          headers: { Accept: "application/json" },
+        });
+
+        if (!response.ok) {
+          const data = await response.json().catch(() => ({}));
+          throw new Error(data.error || "Failed to send message.");
+        }
+
+        window.location.href = "/contact?sent=1";
+      } catch (error) {
+        if (errorEl) {
+          errorEl.textContent = error.message || "Something went wrong.";
+          errorEl.classList.remove("hidden");
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Send Message";
+        }
+      }
+    });
+  }
+});

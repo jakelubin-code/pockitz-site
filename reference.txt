@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keychain Companions | Meet the Crew</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pastel-pink: #FFB7B2;
+            --pastel-orange: #FFDAC1;
+            --pastel-yellow: #E2F0CB;
+            --pastel-green: #B5EAD7;
+            --pastel-blue: #C7CEEA;
+            --pastel-purple: #D4A5FF;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fdfcfb;
+            color: #4a4a4a;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 183, 178, 0.2);
+        }
+
+        .character-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        @media (hover: hover) {
+            .character-card:hover {
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+            }
+        }
+
+        .trait-badge {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .keychain-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1.5rem;
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .modal-enter {
+            animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalPop {
+            from { opacity: 0; transform: translateY(20px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="glass-nav sticky top-0 z-[60] px-4 md:px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-xl shadow-inner">✨</div>
+            <h1 class="text-xl md:text-2xl font-bold tracking-tight text-pink-500">KeyPal Shop</h1>
+        </div>
+        
+        <!-- Desktop Links -->
+        <div class="hidden md:flex space-x-8 font-semibold text-gray-600">
+            <a href="#" class="hover:text-pink-400 transition">Our Story</a>
+            <a href="#" class="hover:text-pink-400 transition">Meet the Gang</a>
+            <a href="#" class="hover:text-pink-400 transition">Contact</a>
+        </div>
+
+        <div class="flex items-center space-x-4">
+            <button class="hidden sm:block bg-pink-400 text-white px-6 py-2 rounded-full font-bold shadow-md hover:bg-pink-500 transition-all active:scale-95">
+                Shop All
+            </button>
+            <!-- Mobile Toggle -->
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-pink-500 focus:outline-none">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 6h16" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Side Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[70] flex flex-col p-8 md:hidden shadow-2xl">
+        <div class="flex justify-end">
+            <button onclick="toggleMobileMenu()" class="text-gray-400 p-2 text-4xl">&times;</button>
+        </div>
+        <div class="flex flex-col space-y-8 mt-12 text-2xl font-bold text-gray-800">
+            <a href="#" onclick="toggleMobileMenu()">Our Story</a>
+            <a href="#" onclick="toggleMobileMenu()">Meet the Gang</a>
+            <a href="#" onclick="toggleMobileMenu()">Contact</a>
+            <a href="#" onclick="toggleMobileMenu()" class="text-pink-500">Shop Collection</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="max-w-6xl mx-auto px-6 py-12 md:py-20 text-center">
+        <h2 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Small Friends, <br class="sm:hidden"><span class="text-pink-400">Big Personalities</span></h2>
+        <p class="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
+            Every keychain we handcraft has a unique story, a favorite snack, and a face that's always happy to see you.
+        </p>
+    </header>
+
+    <!-- Character Grid -->
+    <main class="max-w-7xl mx-auto px-4 md:px-8 pb-24">
+        <div id="character-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+            <!-- Dynamic Content -->
+        </div>
+    </main>
+
+    <!-- Character Modal -->
+    <div id="modal" class="fixed inset-0 z-[100] hidden flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-t-[2.5rem] sm:rounded-[2.5rem] max-w-lg w-full overflow-hidden shadow-2xl modal-enter relative">
+            <div id="modal-color-bar" class="h-3 w-full"></div>
+            <div class="p-6 sm:p-10">
+                <div class="flex justify-between items-start mb-6">
+                    <div id="modal-image-container" class="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl flex items-center justify-center text-5xl sm:text-6xl shadow-inner border-4 border-white overflow-hidden">
+                        <!-- Image/Emoji -->
+                    </div>
+                    <button onclick="closeModal()" class="text-gray-300 hover:text-gray-500 text-4xl p-2">&times;</button>
+                </div>
+                <h3 id="modal-name" class="text-3xl sm:text-4xl font-bold mb-1">Character Name</h3>
+                <p id="modal-tagline" class="text-pink-500 font-semibold mb-6 italic">Character Tagline</p>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-xs uppercase tracking-widest text-gray-400 mb-2">The Personality</h4>
+                        <p id="modal-personality" class="text-gray-600 leading-relaxed text-base"></p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                            <h4 class="font-bold text-[10px] uppercase text-gray-400 mb-1">Favorite Food</h4>
+                            <p id="modal-food" class="text-gray-700 font-semibold text-sm"></p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                            <h4 class="font-bold text-[10px] uppercase text-gray-400 mb-1">Main Hobby</h4>
+                            <p id="modal-hobby" class="text-gray-700 font-semibold text-sm"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a id="modal-adopt-btn" href="#" target="_blank" class="block text-center w-full mt-8 py-5 bg-gray-900 text-white font-bold rounded-2xl hover:bg-black transition-all shadow-xl active:scale-[0.98]">
+                    Adopt this KeyPal
+                </a>
+                <!-- Safe area spacer for mobile -->
+                <div class="h-6 sm:hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t py-12 px-6 text-center">
+        <p class="text-gray-400 text-sm italic font-medium">© 2024 KeyPal Shop • Tiny treasures for big hearts</p>
+    </footer>
+
+    <script>
+        const KEYCHAINS = [
+            {
+                id: 1,
+                name: "Mochi",
+                tagline: "The Gentle Dreamer",
+                image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=300", 
+                adoptUrl: "https://yourshop.com/products/mochi",
+                color: "#C7CEEA",
+                personality: "Mochi spends most of their time looking at clouds and wondering if they taste like marshmallows. They are a great listener and never interrupt.",
+                favFood: "Strawberry Pocky",
+                hobby: "Cloud Watching",
+                traits: ["Quiet", "Kind", "Soft"]
+            },
+            {
+                id: 2,
+                name: "Sunny",
+                tagline: "The Eternal Optimist",
+                image: "☀️",
+                adoptUrl: "https://yourshop.com/products/sunny",
+                color: "#FFDAC1",
+                personality: "Sunny wakes up at 5 AM just to say hello to the sun. They believe every rainy day is just an excuse to wear a cute raincoat.",
+                favFood: "Lemon Slices",
+                hobby: "Telling Jokes",
+                traits: ["Loud", "Happy", "Warm"]
+            },
+            {
+                id: 3,
+                name: "Boba",
+                tagline: "The Late Night Gamer",
+                image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&q=80&w=300",
+                adoptUrl: "https://yourshop.com/products/boba",
+                color: "#E2F0CB",
+                personality: "Boba is a night owl who loves high-scores and low-fi beats. They might look sleepy, but they have the fastest thumbs in the West.",
+                favFood: "Tapioca Pearls",
+                hobby: "Retro Gaming",
+                traits: ["Chill", "Gaming", "Cool"]
+            },
+            {
+                id: 4,
+                name: "Berry",
+                tagline: "The Tiny Adventurer",
+                image: "🍓",
+                adoptUrl: "https://yourshop.com/products/berry",
+                color: "#FFB7B2",
+                personality: "Berry may be small, but they once climbed a whole staircase by themselves! They carry a lot of courage in their tiny plush heart.",
+                favFood: "Wild Berries",
+                hobby: "Hiking",
+                traits: ["Brave", "Curious", "Sweet"]
+            }
+        ];
+
+        const grid = document.getElementById('character-grid');
+        const modal = document.getElementById('modal');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        }
+
+        function getMediaHtml(source) {
+            const isUrl = source.startsWith('http') || source.startsWith('./');
+            if (isUrl) {
+                return `<img src="${source}" class="keychain-img" alt="Keychain" onerror="this.parentElement.innerHTML='✨'">`;
+            }
+            return source;
+        }
+
+        function renderCards() {
+            grid.innerHTML = KEYCHAINS.map(item => `
+                <div class="character-card bg-white rounded-[2.5rem] p-6 shadow-sm border border-gray-100 flex flex-col items-center text-center" 
+                     onclick="openModal(${item.id})"
+                     style="background: linear-gradient(180deg, white 0%, ${item.color}15 100%)">
+                    
+                    <div class="w-28 h-28 md:w-32 md:h-32 rounded-3xl flex items-center justify-center text-5xl md:text-6xl mb-6 shadow-inner border-4 border-white overflow-hidden floating" 
+                         style="background-color: ${item.color}44">
+                        ${getMediaHtml(item.image)}
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-1">${item.name}</h3>
+                    <p class="text-xs text-gray-400 font-bold mb-4 uppercase tracking-widest">${item.tagline}</p>
+                    
+                    <div class="flex flex-wrap justify-center gap-2 mt-auto">
+                        ${item.traits.map(t => `<span class="trait-badge px-3 py-1 rounded-full text-[10px] font-bold text-gray-500 uppercase">${t}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openModal(id) {
+            const char = KEYCHAINS.find(c => c.id === id);
+            if (!char) return;
+
+            document.getElementById('modal-color-bar').style.backgroundColor = char.color;
+            const imgContainer = document.getElementById('modal-image-container');
+            imgContainer.style.backgroundColor = char.color + '44';
+            imgContainer.innerHTML = getMediaHtml(char.image);
+
+            document.getElementById('modal-name').innerText = char.name;
+            document.getElementById('modal-tagline').innerText = char.tagline;
+            document.getElementById('modal-personality').innerText = char.personality;
+            document.getElementById('modal-food').innerText = char.favFood;
+            document.getElementById('modal-hobby').innerText = char.hobby;
+            document.getElementById('modal-adopt-btn').href = char.adoptUrl || "#";
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = (e) => { if (e.target == modal) closeModal(); }
+        window.onload = renderCards;
+    </script>
+</body>
+</html>
