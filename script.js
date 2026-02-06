@@ -33,6 +33,28 @@ const buildMediaNode = (source) => {
   return document.createTextNode(source);
 };
 
+const withAlpha = (color, alpha) => {
+  if (!color) return `rgba(0,0,0,${alpha})`;
+  if (color.startsWith("#")) {
+    const hex = color.replace("#", "");
+    const full = hex.length === 3
+      ? hex.split("").map((c) => c + c).join("")
+      : hex;
+    const int = parseInt(full, 16);
+    const r = (int >> 16) & 255;
+    const g = (int >> 8) & 255;
+    const b = int & 255;
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  }
+  if (color.startsWith("rgb(")) {
+    const parts = color.replace("rgb(", "").replace(")", "").split(",").map((v) => v.trim());
+    if (parts.length >= 3) {
+      return `rgba(${parts[0]}, ${parts[1]}, ${parts[2]}, ${alpha})`;
+    }
+  }
+  return color;
+};
+
 const setBodyLock = (locked, className) => {
   document.body.classList.toggle(className, locked);
 };
@@ -71,12 +93,12 @@ const renderCards = () => {
     card.className =
       "character-card bg-white rounded-[2.5rem] p-6 shadow-sm border border-gray-100 flex flex-col items-center text-center";
     card.dataset.id = String(item.id);
-    card.style.background = `linear-gradient(180deg, white 0%, ${item.color}15 100%)`;
+    card.style.background = `linear-gradient(180deg, white 0%, ${withAlpha(item.color, 0.16)} 100%)`;
 
     const mediaWrap = document.createElement("div");
     mediaWrap.className =
       "w-28 h-28 md:w-32 md:h-32 rounded-3xl flex items-center justify-center text-5xl md:text-6xl mb-6 shadow-inner border-4 border-white overflow-hidden floating";
-    mediaWrap.style.backgroundColor = `${item.color}44`;
+    mediaWrap.style.backgroundColor = withAlpha(item.color, 0.38);
     mediaWrap.appendChild(buildMediaNode(item.image));
 
     const name = document.createElement("h3");
