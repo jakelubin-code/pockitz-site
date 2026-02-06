@@ -19,7 +19,9 @@ export async function onRequest({ request, env }) {
   const form = await request.formData();
   const name = String(form.get("name") || "").trim();
   const email = String(form.get("email") || "").trim();
+  const phone = String(form.get("phone") || "").trim();
   const message = String(form.get("message") || "").trim();
+  const marketingOptIn = form.get("marketingOptIn") === "yes";
   const honeypot = String(form.get("website") || "").trim();
 
   if (honeypot) {
@@ -65,6 +67,8 @@ export async function onRequest({ request, env }) {
       <div style="font-family:Arial,Helvetica,sans-serif;line-height:1.6;">
         <h2>New message from ${escapeHtml(name)}</h2>
         <p><strong>Reply to:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(phone || "Not provided")}</p>
+        <p><strong>Email marketing consent:</strong> ${marketingOptIn ? "Agreed" : "Declined"}</p>
         <p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>
       </div>
     `,
