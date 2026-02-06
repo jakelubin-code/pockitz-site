@@ -33,6 +33,8 @@ const buildMediaNode = (source) => {
   return document.createTextNode(source);
 };
 
+window.buildMediaNode = buildMediaNode;
+
 const withAlpha = (color, alpha) => {
   if (!color) return `rgba(0,0,0,${alpha})`;
   if (color.startsWith("#")) {
@@ -265,6 +267,31 @@ document.addEventListener("DOMContentLoaded", () => {
       searchQuery = event.target.value || "";
       applyFilters();
     });
+  }
+
+  const crewBar = document.getElementById("crew-bar");
+  const searchSlot = document.getElementById("search-slot");
+  const headerSlot = document.getElementById("search-header-slot");
+  if (crewBar && searchSlot && headerSlot) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!searchSlot.parentElement?.isSameNode(crewBar)) {
+            const searchWrap = searchSlot;
+            const container = crewBar.querySelector(".search-wrap")?.parentElement || crewBar;
+            container.appendChild(searchWrap);
+          }
+          headerSlot.classList.add("hidden");
+        } else {
+          if (!headerSlot.contains(searchSlot)) {
+            headerSlot.appendChild(searchSlot);
+          }
+          headerSlot.classList.remove("hidden");
+        }
+      },
+      { rootMargin: "-80px 0px 0px 0px", threshold: 0 }
+    );
+    observer.observe(crewBar);
   }
   const filterList = document.getElementById("filter-list");
   const filterPanel = document.getElementById("filter-panel");

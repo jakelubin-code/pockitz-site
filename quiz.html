@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiv3D · Pockitz | Find Your Match</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=5" />
+  <script src="assets/js/keychains.js?v=5"></script>
+  <script src="assets/js/script.js?v=5" defer></script>
+  <script src="assets/js/quiz.js?v=5" defer></script>
+</head>
+<body class="min-h-screen overflow-x-hidden flex flex-col">
+  <nav class="glass-nav sticky top-0 z-[60] px-4 md:px-8 py-4 flex items-center justify-between relative">
+    <a href="index.html" class="nav-brand-link flex items-center space-x-3">
+      <img src="k3d.svg" alt="Kiv3D logo" class="nav-logo" />
+      <h1 class="text-xl md:text-2xl font-bold tracking-tight text-pink-500">Kiv3D · Pockitz</h1>
+    </a>
+
+    <div class="nav-desktop items-center space-x-6 font-semibold text-gray-600 absolute left-1/2 -translate-x-1/2">
+      <a href="shop.html" class="nav-link">Shop All</a>
+      <a href="quiz.html" class="nav-link">Take the Quiz</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="social.html" class="nav-link">Our Social Media</a>
+    </div>
+
+    <div class="flex items-center space-x-4 ml-auto">
+      <button id="mobile-toggle" class="nav-mobile p-2 text-pink-500 focus:outline-none" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="fixed inset-0 z-[70]" aria-hidden="true">
+    <div class="mobile-backdrop"></div>
+    <div class="mobile-drawer">
+      <div class="flex justify-end">
+        <button id="mobile-close" class="text-gray-400 p-2 text-4xl" aria-label="Close menu">&times;</button>
+      </div>
+      <div class="flex flex-col space-y-8 mt-12 text-2xl font-bold text-gray-800">
+      <a href="shop.html" class="mobile-link">Shop All</a>
+      <a href="quiz.html" class="mobile-link">Take the Quiz</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+      <a href="social.html" class="mobile-link">Our Social Media</a>
+    </div>
+  </div>
+  </div>
+
+  <header class="hero-wide">
+    <div class="max-w-5xl mx-auto px-6 pt-12 md:pt-20 pb-10 text-center">
+      <div class="max-w-4xl mx-auto px-6 py-10 md:py-12 text-center">
+        <p class="hero-kicker text-xs uppercase text-pink-400 font-semibold mb-3">pockitz quiz</p>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Find Your Perfect Pockitz</h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          Answer six quick questions and we’ll match you with a Pockitz that fits your vibe.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto px-6 pb-24">
+    <div id="quiz-card" class="contact-shell p-8 md:p-12 quiz-shell">
+      <div id="quiz-progress" class="quiz-progress text-xs uppercase tracking-[0.35em] text-gray-400 font-bold mb-4">Question 1 of 6</div>
+      <h3 id="quiz-question" class="quiz-question text-2xl md:text-3xl font-bold mb-6">Question</h3>
+      <div id="quiz-options" class="quiz-options"></div>
+      <div id="quiz-loading" class="quiz-loading-screen hidden" role="status" aria-live="polite">
+        <div class="quiz-spinner" aria-hidden="true"></div>
+        <p class="quiz-loading-title">Finding your next question</p>
+        <p class="quiz-loading-copy">Tuning your vibe profile</p>
+        <div class="quiz-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="quiz-result" class="contact-shell p-8 md:p-12 quiz-shell quiz-result-shell hidden">
+      <div class="result-reveal mb-4" aria-live="polite">
+        <p class="result-reveal-kicker">Ta-da!</p>
+        <h3 class="result-reveal-title">Here Are Your Best Pockitz Matches</h3>
+      </div>
+      <div id="result-list" class="quiz-result-list" aria-live="polite"></div>
+      <div class="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
+        <a href="shop.html" class="nav-pill">Shop All Pockitz</a>
+        <button id="quiz-restart" class="nav-pill" type="button">Retake Quiz</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-white border-t py-12 px-6 text-center mt-auto">
+    <p class="footer-note text-sm italic font-medium">© 2024 Pockitz • Tiny prints for big hearts</p>
+  </footer>
+</body>
+</html>

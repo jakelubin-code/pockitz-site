@@ -3,14 +3,15 @@ window.KEYCHAINS = [
     id: 1,
     name: "Chonky the Octopus",
     tagline: "The unfazable pronoic",
-    image: "./OPS.jpg",
+    image: "./assets/img/OPS.jpg",
     shopUrl: "https://www.etsy.com/listing/4452750677/cute-octopus-keychain-mini-keychain?ref=related-4&pro=1&logging_key=7785eef5c28b3ed894cc7bcd6f16b3782224d592%3A4452750677",
     color: "#42c79d",
     personality:
-      "Chonky spends his days playing with his fish friends and exploring caves",
+      "Chonky is a big-ideas octopus who lives for spontaneity, new possibilities, and hyping up the people around him.",
     favFood: "Pringles",
     hobby: "Cloud Watching",
     categories: ["animals"],
+    mbti: "ENTP",
   },
   {
     id: 2,
@@ -20,10 +21,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/pip",
     color: "#9fd2ff",
     personality:
-      "Pip glides across icy counters and insists every day is a rink day. Quietly competitive, loudly cute.",
+      "Pip is playful, outgoing, and always ready to jump into fun with a grin and a spin.",
     favFood: "Vanilla wafers",
     hobby: "Ice sliding",
     categories: ["animals", "sports", "ocean"],
+    mbti: "ESFP",
   },
   {
     id: 3,
@@ -33,10 +35,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/kiko",
     color: "#c8d2c0",
     personality:
-      "Kiko naps between snack breaks and writes little notes about clouds. The coziest pal in the pouch.",
+      "Kiko is gentle, loyal, and quietly thoughtful—always the steady friend who shows up for you.",
     favFood: "Honey toast",
     hobby: "Blanket forts",
     categories: ["animals", "cozy", "nature"],
+    mbti: "ISFJ",
   },
   {
     id: 4,
@@ -46,10 +49,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/miso",
     color: "#f5c5a6",
     personality:
-      "Miso supervises sunbeams and judges crumbs. Soft paws, softer opinions.",
+      "Miso is idealistic and warm, with a calm heart and a sweet, thoughtful glow.",
     favFood: "Buttery biscuits",
     hobby: "Sunbathing",
     categories: ["animals", "cozy"],
+    mbti: "INFP",
   },
   {
     id: 5,
@@ -59,10 +63,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/rolo",
     color: "#b6b3a8",
     personality:
-      "Rolo is a master of midnight snacks and tiny treasures. They bring joy and exactly one extra cookie.",
+      "Rolo is quick-witted and curious, always ready to debate an idea or chase a new possibility.",
     favFood: "Chocolate chips",
     hobby: "Treasure hunts",
     categories: ["animals", "food"],
+    mbti: "ENFP",
   },
   {
     id: 6,
@@ -72,10 +77,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/taro",
     color: "#6fbf9c",
     personality:
-      "Taro is slow on purpose and proud of it. They finish every race with a victory snack.",
+      "Taro is practical, reliable, and grounded—your steady pal who keeps things on track.",
     favFood: "Cucumber slices",
     hobby: "Gentle races",
     categories: ["animals", "sports", "nature"],
+    mbti: "ISTJ",
   },
   {
     id: 7,
@@ -85,10 +91,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/lumi",
     color: "#f7a8b8",
     personality:
-      "Lumi paints invisible art in a bubble jar and giggles at raindrops. Always glowing, always calm.",
+      "Lumi is gentle and artistic, with a warm, easygoing spirit and a soft creative spark.",
     favFood: "Strawberry jelly",
     hobby: "Bubble making",
     categories: ["animals", "ocean", "cozy"],
+    mbti: "ISFP",
   },
   {
     id: 8,
@@ -98,10 +105,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/nova",
     color: "#8bb7ff",
     personality:
-      "Nova keeps a soft glow for bedtime stories and makes wishes feel closer.",
+      "Nova is insightful and caring, with a quiet confidence and a thoughtful, hopeful vibe.",
     favFood: "Blueberry drops",
     hobby: "Wish journaling",
     categories: ["space", "cozy"],
+    mbti: "INFJ",
   },
   {
     id: 9,
@@ -111,10 +119,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/orbit",
     color: "#ffb56b",
     personality:
-      "Orbit charts missions to the snack drawer and beyond. Always ready for launch.",
+      "Orbit is bold, driven, and strategic—always plotting the next big adventure.",
     favFood: "Caramel bites",
     hobby: "Star mapping",
     categories: ["space", "sports"],
+    mbti: "ENTJ",
   },
   {
     id: 10,
@@ -124,10 +133,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/nori",
     color: "#7cc0d9",
     personality:
-      "Nori hums tiny tunes that make teacups dance. They love hugs and ocean breezes.",
+      "Nori is calm, supportive, and deeply caring—your soft, dependable comfort pal.",
     favFood: "Sea salt taffy",
     hobby: "Humming",
     categories: ["ocean", "animals", "cozy"],
+    mbti: "ISFJ",
   },
   {
     id: 11,
@@ -137,10 +147,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/peb",
     color: "#85d88a",
     personality:
-      "Peb celebrates puddles and collects leaf hats. Their laugh sounds like tiny bells.",
+      "Peb is energetic and social, always turning a small moment into a fun adventure.",
     favFood: "Mint candies",
     hobby: "Puddle hopping",
     categories: ["animals", "nature"],
+    mbti: "ESFP",
   },
   {
     id: 12,
@@ -150,10 +161,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/crumble",
     color: "#d8b08c",
     personality:
-      "Crumble plans the coziest picnics and brings extra blankets for everyone.",
+      "Crumble is nurturing and steady, with a warm heart and a love for thoughtful routines.",
     favFood: "Apple pie",
     hobby: "Picnic planning",
     categories: ["animals", "food", "cozy"],
+    mbti: "ISFJ",
   },
   {
     id: 13,
@@ -163,10 +175,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/pico",
     color: "#ffd36e",
     personality:
-      "Pico collects interesting words and repeats the nice ones. A cheerful chatterbox.",
+      "Pico is expressive and imaginative, always sharing ideas and sparking good conversations.",
     favFood: "Pineapple rings",
     hobby: "Storytelling",
     categories: ["animals", "food"],
+    mbti: "ENFP",
   },
   {
     id: 14,
@@ -176,10 +189,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/sprig",
     color: "#c9b48a",
     personality:
-      "Sprig knows every secret path in the park and shares the best spots to nap.",
+      "Sprig is grounded and reliable, with a calm presence and a practical kind streak.",
     favFood: "Maple leaves",
     hobby: "Trail leading",
     categories: ["animals", "nature"],
+    mbti: "ISTJ",
   },
   {
     id: 15,
@@ -189,10 +203,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/gim",
     color: "#ff8fb2",
     personality:
-      "Gim runs on giggles and sugar sparkles. Always first to the finish line.",
+      "Gim is bold and action-oriented, with a fast pace and a fearless, playful edge.",
     favFood: "Gummy rings",
     hobby: "Sprint races",
     categories: ["food", "sports"],
+    mbti: "ESTP",
   },
   {
     id: 16,
@@ -202,10 +217,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/tilly",
     color: "#ff6f6f",
     personality:
-      "Tilly cheers for every sprout and keeps a pep talk ready for slow days.",
+      "Tilly is outgoing and caring, always lifting people up and keeping the group smiling.",
     favFood: "Garden salad",
     hobby: "Pep talks",
     categories: ["food", "nature"],
+    mbti: "ESFJ",
   },
   {
     id: 17,
@@ -215,10 +231,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/mallow",
     color: "#ffd6e6",
     personality:
-      "Mallow is the softest friend at the fire, always ready with a warm hug.",
+      "Mallow is dreamy, gentle, and deeply empathetic—your soft, heartfelt companion.",
     favFood: "Toasted marshmallow",
     hobby: "Stargazing",
     categories: ["food", "cozy", "space"],
+    mbti: "INFP",
   },
   {
     id: 18,
@@ -228,10 +245,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/riff",
     color: "#78a6ff",
     personality:
-      "Riff practices tiny tricks and celebrates every wobble. Big energy, small wheels.",
+      "Riff is adventurous and bold, with a high-energy, take-the-lead spirit.",
     favFood: "Blue raspberry pops",
     hobby: "Skate tricks",
     categories: ["sports"],
+    mbti: "ESTP",
   },
   {
     id: 19,
@@ -241,10 +259,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/bean",
     color: "#f1c3d3",
     personality:
-      "Bean plants tiny seeds and says good morning to every leaf.",
+      "Bean is kind, steady, and quietly supportive, with a peaceful, caring nature.",
     favFood: "Carrot sticks",
     hobby: "Seed planting",
     categories: ["animals", "nature", "cozy"],
+    mbti: "ISFJ",
   },
   {
     id: 20,
@@ -254,10 +273,11 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/sora",
     color: "#7ed8c5",
     personality:
-      "Sora collects shiny shells and keeps them in perfect rainbow order.",
+      "Sora is calm, curious, and hands-on—preferring practical solutions with a gentle touch.",
     favFood: "Seaweed crisps",
     hobby: "Shell sorting",
     categories: ["ocean", "animals"],
+    mbti: "ISTP",
   },
   {
     id: 21,
@@ -267,9 +287,10 @@ window.KEYCHAINS = [
     shopUrl: "https://yourshop.com/products/zuzu",
     color: "#d7d3cf",
     personality:
-      "Zuzu arranges patterns and helps friends find their best colors.",
+      "Zuzu is strategic and independent, with a focused mind and a creative eye.",
     favFood: "Blackberry bites",
     hobby: "Pattern making",
     categories: ["animals", "cozy", "black"],
+    mbti: "INTJ",
   },
 ];

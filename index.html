@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pockitz | Meet the Crew</title>
+  <title>Kiv3D · Pockitz | Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2" /><!-- Change version number before push!! -->
-  <script src="keychains.js?v=2"></script> <!-- Change version number before push!! -->
-  <script src="script.js?v=2" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=2" />
+  <script src="assets/js/script.js?v=2" defer></script>
 </head>
 <body class="min-h-screen overflow-x-hidden">
   <nav class="glass-nav sticky top-0 z-[60] px-4 md:px-8 py-4 flex items-center justify-between relative">
-    <div class="flex items-center space-x-3">
-      <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-xs font-bold shadow-inner">KP</div>
-      <h1 class="text-xl md:text-2xl font-bold tracking-tight text-pink-500">Pockitz</h1>
-    </div>
+    <a href="index.html" class="nav-brand-link flex items-center space-x-3">
+      <img src="k3d.svg" alt="Kiv3D logo" class="nav-logo" />
+      <h1 class="text-xl md:text-2xl font-bold tracking-tight text-pink-500">Kiv3D · Pockitz</h1>
+    </a>
 
     <div class="nav-desktop items-center space-x-6 font-semibold text-gray-600 absolute left-1/2 -translate-x-1/2">
-      <a href="#home" class="nav-link">Home</a>
+      <a href="shop.html" class="nav-link">Shop All</a>
+      <a href="quiz.html" class="nav-link">Take the Quiz</a>
       <a href="contact.html" class="nav-link">Contact</a>
-      <a href="#shop" class="nav-link">Shop All</a>
       <a href="social.html" class="nav-link">Our Social Media</a>
     </div>
 
@@ -40,122 +39,66 @@
         <button id="mobile-close" class="text-gray-400 p-2 text-4xl" aria-label="Close menu">&times;</button>
       </div>
       <div class="flex flex-col space-y-8 mt-12 text-2xl font-bold text-gray-800">
-        <a href="#home" class="mobile-link">Home</a>
+        <a href="shop.html" class="mobile-link">Shop All</a>
+        <a href="quiz.html" class="mobile-link">Take the Quiz</a>
         <a href="contact.html" class="mobile-link">Contact</a>
-        <a href="#shop" class="mobile-link">Shop All</a>
         <a href="social.html" class="mobile-link">Our Social Media</a>
       </div>
     </div>
   </div>
 
   <header id="home" class="hero-wide">
-    <div class="max-w-6xl mx-auto px-6 pt-12 md:pt-16 pb-8 md:pb-10 text-center">
+    <div class="max-w-6xl mx-auto px-6 pt-12 md:pt-16 pb-10 md:pb-12 text-center">
       <p class="hero-kicker text-xs uppercase text-pink-400 font-semibold mb-3">crafted pals</p>
       <h2 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Small friends with <span class="text-pink-500">big sparkle</span></h2>
       <p class="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
-        Smooth-finish pals with tiny stories, sweet smiles, and extra-soft vibes. Pick your Pockitz, learn their quirks, and take them on new adventures.
+        Smooth-finish Pockitz with tiny stories, sweet smiles, and a feel that’s soft to hold. Pick your favorite, then discover which one feels the most like you.
       </p>
-      <div class="mt-8 flex justify-center">
-        <span class="hero-banner">Smooth-finish • Snack-inspired • Cozy-soft</span>
+      <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="shop.html" class="nav-pill">Shop All Pockitz</a>
+        <a href="quiz.html" class="nav-pill">Take the Quiz</a>
       </div>
     </div>
   </header>
 
-  <main id="shop" class="max-w-7xl mx-auto px-4 md:px-8 pt-10 md:pt-12 pb-20">
-    <div class="crew-bar flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+  <section class="max-w-6xl mx-auto px-6 pt-10 md:pt-12 pb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
       <div>
-        <h3 class="section-title font-bold">Meet the Crew</h3>
-        <p class="text-gray-500 max-w-xl">Each Pockitz has a mini backstory and a favorite snack. Tap to learn more.</p>
+        <h3 class="section-title font-bold mb-4">Tiny details, big personality</h3>
+        <p class="text-gray-500 leading-relaxed">
+          Each Pockitz is designed with a distinct vibe—calm, bold, playful, or cozy—so your pick feels personal. Mix and match for your bag, keys, or desk setup.
+        </p>
       </div>
-      <div class="flex flex-col sm:flex-row sm:items-center gap-3 md:gap-4 w-full md:w-auto">
-        <label class="search-wrap w-full sm:w-64 md:w-72">
-          <span class="sr-only">Search</span>
-          <input id="search-input" type="search" placeholder="Search name, vibe, hobby..." class="search-input w-full" />
-        </label>
-        <button id="filter-toggle" class="nav-pill md:hidden" type="button" aria-expanded="false" aria-controls="filter-panel">
-        Filters
-        </button>
-      </div>
-    </div>
-    <div class="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8">
-      <aside id="filter-panel" class="filter-panel is-collapsed">
-        <h4 class="text-xs uppercase tracking-[0.35em] text-gray-400 font-bold mb-4">Filter</h4>
-        <div id="filter-list" class="flex flex-col gap-3">
-          <button class="filter-pill is-active" data-filter="all" type="button">All</button>
-          <button class="filter-pill" data-filter="animals" type="button">Animals</button>
-          <button class="filter-pill" data-filter="food" type="button">Food</button>
-          <button class="filter-pill" data-filter="sports" type="button">Sports</button>
-          <button class="filter-pill" data-filter="ocean" type="button">Ocean</button>
-          <button class="filter-pill" data-filter="space" type="button">Space</button>
-          <button class="filter-pill" data-filter="nature" type="button">Nature</button>
-          <button class="filter-pill" data-filter="cozy" type="button">Cozy</button>
-        </div>
-      </aside>
-      <div class="flex flex-col gap-6">
-        <div id="character-grid" class="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-          <!-- Dynamic Content -->
-        </div>
-        <div id="no-results" class="no-results hidden">
-          <div class="no-results-card">
-            <h4 class="text-lg font-bold mb-2">No matches found</h4>
-            <p class="text-sm text-gray-500 mb-4">Want something different? Tell us what you’d like to see next.</p>
-            <a href="contact.html" class="nav-pill">Recommend a Product</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <section id="social" class="max-w-6xl mx-auto px-6 pb-24">
-    <div class="section-soft p-8 md:p-12 text-center">
-      <h3 class="section-title font-bold mb-3">Our Social Media</h3>
-      <p class="text-gray-500 max-w-2xl mx-auto mb-8">Behind the scenes, sneak peeks, and plushy joy drops.</p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="#" class="nav-pill">Instagram</a>
-        <a href="#" class="nav-pill">TikTok</a>
-        <a href="#" class="nav-pill">Pinterest</a>
-        <a href="#" class="nav-pill">YouTube</a>
+      <div class="gallery-grid">
+        <img src="assets/img/OPS.jpg" alt="Pockitz keychain" class="gallery-img" />
+        <img src="https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?auto=format&fit=crop&w=600&q=80" alt="Pockitz detail" class="gallery-img" />
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Pockitz vibe" class="gallery-img" />
+        <img src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?auto=format&fit=crop&w=600&q=80" alt="Pockitz color" class="gallery-img" />
       </div>
     </div>
   </section>
 
-  <div id="modal" class="fixed inset-0 z-[100] hidden flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/50 backdrop-blur-sm" aria-hidden="true">
-    <div class="bg-white rounded-t-[2.5rem] sm:rounded-[2.5rem] max-w-lg w-full overflow-hidden shadow-2xl modal-enter relative">
-      <div id="modal-color-bar" class="h-3 w-full"></div>
-      <div class="p-6 sm:p-10">
-        <div class="flex justify-between items-start mb-6">
-          <div id="modal-image-container" class="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl flex items-center justify-center text-5xl sm:text-6xl shadow-inner border-4 border-white overflow-hidden">
-            <!-- Image/Emoji -->
-          </div>
-          <button id="modal-close" class="text-gray-300 hover:text-gray-500 text-4xl p-2" aria-label="Close details">&times;</button>
-        </div>
-        <h3 id="modal-name" class="text-3xl sm:text-4xl font-bold mb-1">Character Name</h3>
-        <p id="modal-tagline" class="text-pink-500 font-semibold mb-6 italic">Character Tagline</p>
-
-        <div class="space-y-6">
-          <div>
-            <h4 class="font-bold text-xs uppercase tracking-widest text-gray-400 mb-2">The Personality</h4>
-            <p id="modal-personality" class="text-gray-600 leading-relaxed text-base"></p>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
-              <h4 class="font-bold text-[10px] uppercase text-gray-400 mb-1">Favorite Food</h4>
-              <p id="modal-food" class="text-gray-700 font-semibold text-sm"></p>
-            </div>
-            <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
-              <h4 class="font-bold text-[10px] uppercase text-gray-400 mb-1">Main Hobby</h4>
-              <p id="modal-hobby" class="text-gray-700 font-semibold text-sm"></p>
-            </div>
-          </div>
-        </div>
-
-        <a id="modal-adopt-btn" href="#" target="_blank" class="adopt-btn block text-center w-full mt-8 py-5 text-white font-bold rounded-2xl transition-all shadow-xl active:scale-[0.98]">
-          Shop this Pockitz
-        </a>
-        <div class="h-6 sm:hidden"></div>
-      </div>
+  <section class="max-w-6xl mx-auto px-6 pb-20">
+    <h3 class="section-title font-bold mb-6">Photo Gallery</h3>
+    <div class="gallery-grid gallery-grid-wide">
+      <img src="assets/img/OPS.jpg" alt="Pockitz keychain" class="gallery-img" />
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" alt="Pockitz scene" class="gallery-img" />
+      <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=600&q=80" alt="Pockitz collection" class="gallery-img" />
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Pockitz closeup" class="gallery-img" />
+      <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80" alt="Pockitz atmosphere" class="gallery-img" />
+      <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80" alt="Pockitz palette" class="gallery-img" />
     </div>
-  </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 pb-24">
+    <div class="section-soft p-8 md:p-12 text-center">
+      <h3 class="section-title font-bold mb-3">Discover your perfect Pockitz</h3>
+      <p class="text-gray-500 max-w-2xl mx-auto mb-6">
+        Take the quick quiz and we’ll match you with a Pockitz that feels like you.
+      </p>
+      <a href="quiz.html" class="nav-pill">Take the Quiz to Discover Yours</a>
+    </div>
+  </section>
 
   <footer class="bg-white border-t py-12 px-6 text-center">
     <p class="footer-note text-sm italic font-medium">© 2024 Pockitz • Tiny prints for big hearts</p>
