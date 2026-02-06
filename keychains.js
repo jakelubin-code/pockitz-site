@@ -5,7 +5,7 @@ window.KEYCHAINS = [
     tagline: "The unfazable pronoic",
     image: "./OPS.jpg",
     shopUrl: "https://www.etsy.com/listing/4440685288/mini-octopus-candle-holder-cute-tea?ref=shop_home_active_6&pro=1&logging_key=09f445d67266244d1d7e8611e2e454ab837e6f55%3A4440685288",
-    color: "rgb(76, 170, 140)",
+    color: "#42c79d",
     personality:
       "Chonky spends his days playing with his fish friends and fucking dudes",
     favFood: "Pringles",
@@ -77,7 +77,7 @@ window.KEYCHAINS = [
     tagline: "The Tiny Adventurer",
     image: "BRY",
     shopUrl: "https://yourshop.com/products/berry",
-    color: "#FFB7B2",
+    color: "#07f055",
     personality:
       "Berry may be small, but they once climbed a whole staircase by themselves! They carry a lot of courage in their tiny plush heart.",
     favFood: "Wild Berries",
