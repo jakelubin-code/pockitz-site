@@ -23,7 +23,7 @@ const buildMediaNode = (source) => {
   if (isImageSource(source)) {
     const img = document.createElement("img");
     img.src = source;
-    img.alt = "Keychain";
+    img.alt = "Pockitz";
     img.className = "keychain-img";
     img.addEventListener("error", () => {
       img.replaceWith(document.createTextNode("KP"));
@@ -83,12 +83,12 @@ const toggleMobileMenu = () => {
   }
 };
 
-const renderCards = () => {
+const renderCards = (items = KEYCHAINS) => {
   if (!grid) return;
   grid.textContent = "";
   const fragment = document.createDocumentFragment();
 
-  KEYCHAINS.forEach((item) => {
+  items.forEach((item) => {
     const card = document.createElement("div");
     card.className =
       "character-card bg-white rounded-[2.5rem] p-6 shadow-sm border border-gray-100 flex flex-col items-center text-center";
@@ -97,7 +97,7 @@ const renderCards = () => {
 
     const mediaWrap = document.createElement("div");
     mediaWrap.className =
-      "w-28 h-28 md:w-32 md:h-32 rounded-3xl flex items-center justify-center text-5xl md:text-6xl mb-6 shadow-inner border-4 border-white overflow-hidden floating";
+      "card-media w-28 h-28 md:w-32 md:h-32 rounded-3xl flex items-center justify-center text-5xl md:text-6xl mb-6 shadow-inner border-4 border-white overflow-hidden floating";
     mediaWrap.style.backgroundColor = withAlpha(item.color, 0.38);
     mediaWrap.appendChild(buildMediaNode(item.image));
 
@@ -164,6 +164,10 @@ if (mobileToggle && mobileClose && mobileMenu) {
       closeMobileMenu();
     }
   });
+  const mobileBackdrop = mobileMenu.querySelector(".mobile-backdrop");
+  if (mobileBackdrop) {
+    mobileBackdrop.addEventListener("click", closeMobileMenu);
+  }
 }
 
 if (modal && modalClose) {
@@ -216,6 +220,79 @@ document.querySelectorAll(".nav-pill").forEach((pill) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderCards();
+  let activeFilter = "all";
+  let searchQuery = "";
+  const searchInput = document.getElementById("search-input");
+
+  const noResults = document.getElementById("no-results");
+
+  const applyFilters = () => {
+    const query = searchQuery.trim().toLowerCase();
+    let items = KEYCHAINS;
+
+    if (activeFilter !== "all") {
+      items = items.filter(
+        (item) =>
+          Array.isArray(item.categories) &&
+          item.categories.includes(activeFilter)
+      );
+    }
+
+    if (query) {
+      items = items.filter((item) => {
+        const haystack = [
+          item.name,
+          item.tagline,
+          item.personality,
+          item.hobby,
+          item.favFood,
+          Array.isArray(item.categories) ? item.categories.join(" ") : "",
+        ]
+          .join(" ")
+          .toLowerCase();
+        return haystack.includes(query);
+      });
+    }
+
+    renderCards(items);
+    if (noResults) {
+      noResults.classList.toggle("hidden", items.length !== 0);
+    }
+  };
+
+  if (searchInput) {
+    searchInput.addEventListener("input", (event) => {
+      searchQuery = event.target.value || "";
+      applyFilters();
+    });
+  }
+  const filterList = document.getElementById("filter-list");
+  const filterPanel = document.getElementById("filter-panel");
+  const filterToggle = document.getElementById("filter-toggle");
+  if (filterPanel && filterToggle) {
+    const setOpen = (open) => {
+      filterPanel.classList.toggle("is-open", open);
+      filterToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+    setOpen(false);
+    filterToggle.addEventListener("click", () => {
+      const isOpen = filterPanel.classList.contains("is-open");
+      setOpen(!isOpen);
+    });
+  }
+  if (filterList) {
+    filterList.addEventListener("click", (event) => {
+      const button = event.target.closest(".filter-pill");
+      if (!button) return;
+      const filter = button.dataset.filter;
+      filterList.querySelectorAll(".filter-pill").forEach((pill) => {
+        pill.classList.toggle("is-active", pill === button);
+      });
+      activeFilter = filter || "all";
+      applyFilters();
+      if (filterPanel) filterPanel.classList.remove("is-open");
+    });
+  }
   const statusEl = document.getElementById("contact-status");
   const errorEl = document.getElementById("contact-error");
   if (statusEl) {

@@ -3,44 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KeyPal Shop | Contact Us</title>
+  <title>Pockitz | Contact Us</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=1" /> <!-- Change version number before push!! -->
-  <script src="script.js?v=1" defer></script> <!-- Change version number before push!! -->
+  <link rel="stylesheet" href="style.css?v=2" /> <!-- Change version number before push!! -->
+  <script src="script.js?v=2" defer></script> <!-- Change version number before push!! -->
 </head>
 <body class="min-h-screen overflow-x-hidden">
-  <nav class="glass-nav sticky top-0 z-[60] px-4 md:px-8 py-4 flex items-center relative">
+  <nav class="glass-nav sticky top-0 z-[60] px-4 md:px-8 py-4 flex items-center justify-between relative">
     <div class="flex items-center space-x-3">
       <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-xs font-bold shadow-inner">KP</div>
-      <h1 class="text-xl md:text-2xl font-bold tracking-tight text-pink-500">KeyPal Shop</h1>
+      <h1 class="text-xl md:text-2xl font-bold tracking-tight text-pink-500">Pockitz</h1>
     </div>
 
-    <div class="hidden md:flex items-center space-x-4 font-semibold text-gray-600 absolute left-1/2 -translate-x-1/2">
-      <a href="index.html#home" class="nav-pill">Home</a>
-      <a href="contact.html" class="nav-pill">Contact</a>
-      <a href="index.html#shop" class="nav-pill">Shop All</a>
-      <a href="index.html#social" class="nav-pill">Our Social Media</a>
+    <div class="nav-desktop items-center space-x-6 font-semibold text-gray-600 absolute left-1/2 -translate-x-1/2">
+      <a href="index.html#home" class="nav-link">Home</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="index.html#shop" class="nav-link">Shop All</a>
+      <a href="social.html" class="nav-link">Our Social Media</a>
     </div>
 
     <div class="flex items-center space-x-4 ml-auto">
-      <button id="mobile-toggle" class="md:hidden p-2 text-pink-500 focus:outline-none" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+      <button id="mobile-toggle" class="nav-mobile p-2 text-pink-500 focus:outline-none" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 6h16" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
   </nav>
 
-  <div id="mobile-menu" class="fixed inset-0 bg-white z-[70] flex flex-col p-8 md:hidden shadow-2xl" aria-hidden="true">
-    <div class="flex justify-end">
-      <button id="mobile-close" class="text-gray-400 p-2 text-4xl" aria-label="Close menu">&times;</button>
-    </div>
-    <div class="flex flex-col space-y-8 mt-12 text-2xl font-bold text-gray-800">
-      <a href="index.html#home" class="mobile-link">Home</a>
-      <a href="contact.html" class="mobile-link">Contact</a>
-      <a href="index.html#shop" class="mobile-link">Shop All</a>
-      <a href="index.html#social" class="mobile-link">Our Social Media</a>
+  <div id="mobile-menu" class="fixed inset-0 z-[70]" aria-hidden="true">
+    <div class="mobile-backdrop"></div>
+    <div class="mobile-drawer">
+      <div class="flex justify-end">
+        <button id="mobile-close" class="text-gray-400 p-2 text-4xl" aria-label="Close menu">&times;</button>
+      </div>
+      <div class="flex flex-col space-y-8 mt-12 text-2xl font-bold text-gray-800">
+        <a href="index.html#home" class="mobile-link">Home</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+        <a href="index.html#shop" class="mobile-link">Shop All</a>
+        <a href="social.html" class="mobile-link">Our Social Media</a>
+      </div>
     </div>
   </div>
 
@@ -49,7 +52,7 @@
       <p class="hero-kicker text-xs uppercase text-pink-400 font-semibold mb-3">say hi</p>
       <h2 class="text-4xl md:text-6xl font-bold mb-4">Let’s make something cozy</h2>
       <p class="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
-        We love helping with custom orders, collabs, and sweet surprises. Send a note and we’ll reply within 1–2 business days.
+        We love helping with custom pieces, collabs, and sweet surprises. Send a note and we’ll reply within 1–2 business days.
       </p>
     </div>
   </header>
@@ -101,7 +104,7 @@
         </label>
         <label class="flex items-start gap-3 text-sm font-semibold text-gray-600 md:col-span-2">
           <input type="checkbox" name="marketingOptIn" value="yes" class="mt-1 h-4 w-4 rounded border-gray-300 text-pink-500 focus:ring-pink-200" />
-          I agree to receive email updates, news, and marketing from KeyPal Shop.
+          I agree to receive email updates, news, and marketing from Pockitz.
         </label>
         <div class="md:col-span-2 flex justify-center">
           <button type="submit" class="nav-pill">Send Message</button>
@@ -111,7 +114,7 @@
   </main>
 
   <footer class="bg-white border-t py-12 px-6 text-center">
-    <p class="footer-note text-sm italic font-medium">© 2024 KeyPal Shop • Tiny treasures for big hearts</p>
+    <p class="footer-note text-sm italic font-medium">© 2024 Pockitz • Tiny prints for big hearts</p>
   </footer>
 </body>
 </html>
