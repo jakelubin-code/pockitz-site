@@ -10,20 +10,20 @@
   <script src="script.js" defer></script>
 </head>
 <body class="min-h-screen overflow-x-hidden">
-  <nav class="glass-nav sticky top-0 z-[60] px-4 md:px-8 py-4 flex justify-between items-center">
-    <div class="flex items-center space-x-2">
-      <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-xl shadow-inner">✨</div>
+  <nav class="glass-nav sticky top-0 z-[60] px-4 md:px-8 py-4 flex items-center relative">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-xs font-bold shadow-inner">KP</div>
       <h1 class="text-xl md:text-2xl font-bold tracking-tight text-pink-500">KeyPal Shop</h1>
     </div>
 
-    <div class="hidden md:flex items-center space-x-4 font-semibold text-gray-600">
+    <div class="hidden md:flex items-center space-x-4 font-semibold text-gray-600 absolute left-1/2 -translate-x-1/2">
       <a href="index.html#home" class="nav-pill">Home</a>
       <a href="contact.html" class="nav-pill">Contact</a>
       <a href="index.html#shop" class="nav-pill">Shop All</a>
       <a href="index.html#social" class="nav-pill">Our Social Media</a>
     </div>
 
-    <div class="flex items-center space-x-4">
+    <div class="flex items-center space-x-4 ml-auto">
       <button id="mobile-toggle" class="md:hidden p-2 text-pink-500 focus:outline-none" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m4 6h16" />
@@ -44,22 +44,25 @@
     </div>
   </div>
 
-  <header class="max-w-6xl mx-auto px-6 py-14 md:py-20 text-center">
-    <p class="text-xs uppercase tracking-[0.35em] text-gray-400 font-bold mb-3">Contact</p>
-    <h2 class="text-4xl md:text-6xl font-bold mb-5 leading-tight">Let’s Make Something Cozy</h2>
-    <p class="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto">
-      Whether you need help with an order or want a custom keypal, we’re happy to hear from you.
-    </p>
+  <header class="max-w-6xl mx-auto px-6 pt-12 md:pt-20 pb-10">
+    <div class="hero px-6 md:px-12 py-12 md:py-16 text-center">
+      <p class="hero-kicker text-xs uppercase text-pink-400 font-semibold mb-3">say hi</p>
+      <h2 class="text-4xl md:text-6xl font-bold mb-4">Let’s make something cozy</h2>
+      <p class="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
+        We love helping with custom orders, collabs, and sweet surprises. Send a note and we’ll reply within 1–2 business days.
+      </p>
+    </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-6 pb-24">
-    <div class="bg-white rounded-[2.5rem] border border-gray-100 shadow-sm p-8 md:p-12">
+    <div class="contact-shell p-8 md:p-12">
       <div id="contact-status" class="hidden mb-8 rounded-2xl border border-pink-200 bg-pink-50 px-5 py-4 text-pink-700 text-sm font-semibold text-center">
         Thanks! Your message has been sent.
       </div>
       <div id="contact-error" class="hidden mb-8 rounded-2xl border border-red-200 bg-red-50 px-5 py-4 text-red-700 text-sm font-semibold text-center">
         Something went wrong. Please try again.
       </div>
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
         <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 text-center">
           <p class="text-xs uppercase tracking-widest text-gray-400 mb-2 font-bold">Email</p>
@@ -71,9 +74,10 @@
         </div>
         <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 text-center">
           <p class="text-xs uppercase tracking-widest text-gray-400 mb-2 font-bold">Studio Hours</p>
-          <p class="font-semibold text-gray-700">Mon-Fri, 9am-4pm</p>
+          <p class="font-semibold text-gray-700">Mon–Fri, 9am–4pm</p>
         </div>
       </div>
+
       <form class="grid grid-cols-1 md:grid-cols-2 gap-6" id="contact-form" action="/api/contact" method="POST">
         <label class="hidden" aria-hidden="true">
           Website
@@ -81,19 +85,19 @@
         </label>
         <label class="flex flex-col text-sm font-semibold text-gray-600">
           Full Name
-          <input type="text" name="name" placeholder="Your name" required class="mt-2 rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-200" />
+          <input type="text" name="name" placeholder="Your name" required class="input-field" />
         </label>
         <label class="flex flex-col text-sm font-semibold text-gray-600">
           Email Address
-          <input type="email" name="email" placeholder="you@email.com" required class="mt-2 rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-200" />
+          <input type="email" name="email" placeholder="you@email.com" required class="input-field" />
         </label>
         <label class="flex flex-col text-sm font-semibold text-gray-600">
           Phone Number (optional)
-          <input type="tel" name="phone" placeholder="(555) 555-5555" class="mt-2 rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-200" />
+          <input type="tel" name="phone" placeholder="(555) 555-5555" class="input-field" />
         </label>
         <label class="flex flex-col text-sm font-semibold text-gray-600 md:col-span-2">
           Message
-          <textarea name="message" rows="5" placeholder="Tell us about your idea" required class="mt-2 rounded-2xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-200"></textarea>
+          <textarea name="message" rows="5" placeholder="Tell us about your idea" required class="input-field"></textarea>
         </label>
         <label class="flex items-start gap-3 text-sm font-semibold text-gray-600 md:col-span-2">
           <input type="checkbox" name="marketingOptIn" value="yes" class="mt-1 h-4 w-4 rounded border-gray-300 text-pink-500 focus:ring-pink-200" />
@@ -107,7 +111,7 @@
   </main>
 
   <footer class="bg-white border-t py-12 px-6 text-center">
-    <p class="text-gray-400 text-sm italic font-medium">© 2024 KeyPal Shop • Tiny treasures for big hearts</p>
+    <p class="footer-note text-sm italic font-medium">© 2024 KeyPal Shop • Tiny treasures for big hearts</p>
   </footer>
 </body>
 </html>
